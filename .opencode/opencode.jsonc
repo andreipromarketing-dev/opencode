@@ -1,0 +1,448 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "opencode": {
+      "options": {},
+    },
+  },
+  "permission": {
+    "edit": {
+      "packages/opencode/migration/*": "deny",
+    },
+  },
+  "mcp": {
+    "mempalace": "python D:/MY-LIFE-SYSTEM/mempalace-main/mempalace/mcp_server.py",
+  },
+  "instructions": [
+    ".opencode/instructions/INSTRUCTIONS.md",
+    "skills/tdd-workflow/SKILL.md",
+    "skills/security-review/SKILL.md",
+    "skills/coding-standards/SKILL.md",
+    "skills/frontend-patterns/SKILL.md",
+    "skills/backend-patterns/SKILL.md",
+    "skills/e2e-testing/SKILL.md",
+    "skills/api-design/SKILL.md",
+  ],
+  "agent": {
+    "planner": {
+      "description": "Expert planning specialist for complex features and refactoring",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/planner.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "write": false,
+        "edit": false,
+      },
+    },
+    "architect": {
+      "description": "Software architecture specialist for system design and scalability",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/architect.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "write": false,
+        "edit": false,
+      },
+    },
+    "tdd-guide": {
+      "description": "TDD specialist enforcing write-tests-first methodology",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/tdd-guide.txt}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+      },
+    },
+    "code-reviewer": {
+      "description": "Code review specialist for quality, security, and maintainability",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/code-reviewer.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "write": false,
+        "edit": false,
+      },
+    },
+    "security-reviewer": {
+      "description": "Security vulnerability detection and remediation specialist",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/security-reviewer.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "write": true,
+        "edit": true,
+      },
+    },
+    "build-error-resolver": {
+      "description": "Build and TypeScript error resolution specialist",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/build-error-resolver.txt}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+      },
+    },
+    "e2e-runner": {
+      "description": "E2E testing specialist using Playwright",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/e2e-runner.txt}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+      },
+    },
+    "doc-updater": {
+      "description": "Documentation and codemap specialist",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/doc-updater.txt}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+      },
+    },
+    "refactor-cleaner": {
+      "description": "Dead code cleanup and consolidation specialist",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/refactor-cleaner.txt}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+      },
+    },
+    "go-reviewer": {
+      "description": "Go code reviewer specializing in idiomatic Go patterns",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/go-reviewer.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "write": false,
+        "edit": false,
+      },
+    },
+    "go-build-resolver": {
+      "description": "Go build and compilation error resolution specialist",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/go-build-resolver.txt}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+      },
+    },
+    "database-reviewer": {
+      "description": "PostgreSQL database specialist for query optimization and schema design",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/database-reviewer.txt}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+      },
+    },
+    "cpp-reviewer": {
+      "description": "C++ code reviewer specializing in memory safety and modern C++",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/cpp-reviewer.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "write": false,
+        "edit": false,
+      },
+    },
+    "cpp-build-resolver": {
+      "description": "C++ build and compilation error resolution specialist",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/cpp-build-resolver.txt}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+      },
+    },
+    "docs-lookup": {
+      "description": "Documentation specialist using Context7 MCP",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/docs-lookup.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "write": false,
+        "edit": false,
+      },
+    },
+    "harness-optimizer": {
+      "description": "Analyze and improve agent harness configuration",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/harness-optimizer.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "edit": true,
+      },
+    },
+    "java-reviewer": {
+      "description": "Java and Spring Boot code reviewer",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/java-reviewer.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "write": false,
+        "edit": false,
+      },
+    },
+    "java-build-resolver": {
+      "description": "Java/Maven/Gradle build error resolution specialist",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/java-build-resolver.txt}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+      },
+    },
+    "kotlin-reviewer": {
+      "description": "Kotlin and Android/KMP code reviewer",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/kotlin-reviewer.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "write": false,
+        "edit": false,
+      },
+    },
+    "kotlin-build-resolver": {
+      "description": "Kotlin/Gradle build error resolution specialist",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/kotlin-build-resolver.txt}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+      },
+    },
+    "loop-operator": {
+      "description": "Operate autonomous agent loops and monitor progress",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/loop-operator.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "edit": true,
+      },
+    },
+    "python-reviewer": {
+      "description": "Python code reviewer specializing in PEP 8 and Pythonic idioms",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/python-reviewer.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "write": false,
+        "edit": false,
+      },
+    },
+    "rust-reviewer": {
+      "description": "Rust code reviewer specializing in idiomatic Rust patterns",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/rust-reviewer.txt}",
+      "tools": {
+        "read": true,
+        "bash": true,
+        "write": false,
+        "edit": false,
+      },
+    },
+    "rust-build-resolver": {
+      "description": "Rust build and compilation error resolution specialist",
+      "mode": "subagent",
+      "prompt": "{file:.opencode/agent/rust-build-resolver.txt}",
+      "tools": {
+        "read": true,
+        "write": true,
+        "edit": true,
+        "bash": true,
+      },
+    },
+  },
+  "command": {
+    "plan": {
+      "description": "Create a detailed implementation plan for complex features",
+      "template": "{file:.opencode/command/plan.md}\n\n$ARGUMENTS",
+      "agent": "planner",
+      "subtask": true,
+    },
+    "tdd": {
+      "description": "Enforce TDD workflow with 80%+ test coverage",
+      "template": "{file:.opencode/command/tdd.md}\n\n$ARGUMENTS",
+      "agent": "tdd-guide",
+      "subtask": true,
+    },
+    "code-review": {
+      "description": "Review code for quality, security, and maintainability",
+      "template": "{file:.opencode/command/code-review.md}\n\n$ARGUMENTS",
+      "agent": "code-reviewer",
+      "subtask": true,
+    },
+    "security": {
+      "description": "Run comprehensive security review",
+      "template": "{file:.opencode/command/security.md}\n\n$ARGUMENTS",
+      "agent": "security-reviewer",
+      "subtask": true,
+    },
+    "build-fix": {
+      "description": "Fix build and TypeScript errors with minimal changes",
+      "template": "{file:.opencode/command/build-fix.md}\n\n$ARGUMENTS",
+      "agent": "build-error-resolver",
+      "subtask": true,
+    },
+    "e2e": {
+      "description": "Generate and run E2E tests with Playwright",
+      "template": "{file:.opencode/command/e2e.md}\n\n$ARGUMENTS",
+      "agent": "e2e-runner",
+      "subtask": true,
+    },
+    "refactor-clean": {
+      "description": "Remove dead code and consolidate duplicates",
+      "template": "{file:.opencode/command/refactor-clean.md}\n\n$ARGUMENTS",
+      "agent": "refactor-cleaner",
+      "subtask": true,
+    },
+    "orchestrate": {
+      "description": "Orchestrate multiple agents for complex tasks",
+      "template": "{file:.opencode/command/orchestrate.md}\n\n$ARGUMENTS",
+      "agent": "planner",
+      "subtask": true,
+    },
+    "learn": {
+      "description": "Extract patterns and learnings from session",
+      "template": "{file:.opencode/command/learn.md}\n\n$ARGUMENTS",
+    },
+    "checkpoint": {
+      "description": "Save verification state and progress",
+      "template": "{file:.opencode/command/checkpoint.md}\n\n$ARGUMENTS",
+    },
+    "verify": {
+      "description": "Run verification loop",
+      "template": "{file:.opencode/command/verify.md}\n\n$ARGUMENTS",
+    },
+    "eval": {
+      "description": "Run evaluation against criteria",
+      "template": "{file:.opencode/command/eval.md}\n\n$ARGUMENTS",
+    },
+    "update-docs": {
+      "description": "Update documentation",
+      "template": "{file:.opencode/command/update-docs.md}\n\n$ARGUMENTS",
+      "agent": "doc-updater",
+      "subtask": true,
+    },
+    "update-codemaps": {
+      "description": "Update codemaps",
+      "template": "{file:.opencode/command/update-codemaps.md}\n\n$ARGUMENTS",
+      "agent": "doc-updater",
+      "subtask": true,
+    },
+    "test-coverage": {
+      "description": "Analyze test coverage",
+      "template": "{file:.opencode/command/test-coverage.md}\n\n$ARGUMENTS",
+      "agent": "tdd-guide",
+      "subtask": true,
+    },
+    "setup-pm": {
+      "description": "Configure package manager",
+      "template": "{file:.opencode/command/setup-pm.md}\n\n$ARGUMENTS",
+    },
+    "go-review": {
+      "description": "Go code review",
+      "template": "{file:.opencode/command/go-review.md}\n\n$ARGUMENTS",
+      "agent": "go-reviewer",
+      "subtask": true,
+    },
+    "go-test": {
+      "description": "Go TDD workflow",
+      "template": "{file:.opencode/command/go-test.md}\n\n$ARGUMENTS",
+      "agent": "tdd-guide",
+      "subtask": true,
+    },
+    "go-build": {
+      "description": "Fix Go build errors",
+      "template": "{file:.opencode/command/go-build.md}\n\n$ARGUMENTS",
+      "agent": "go-build-resolver",
+      "subtask": true,
+    },
+    "skill-create": {
+      "description": "Generate skills from git history",
+      "template": "{file:.opencode/command/skill-create.md}\n\n$ARGUMENTS",
+    },
+    "instinct-status": {
+      "description": "View learned instincts",
+      "template": "{file:.opencode/command/instinct-status.md}\n\n$ARGUMENTS",
+    },
+    "instinct-import": {
+      "description": "Import instincts",
+      "template": "{file:.opencode/command/instinct-import.md}\n\n$ARGUMENTS",
+    },
+    "instinct-export": {
+      "description": "Export instincts",
+      "template": "{file:.opencode/command/instinct-export.md}\n\n$ARGUMENTS",
+    },
+    "evolve": {
+      "description": "Cluster instincts into skills",
+      "template": "{file:.opencode/command/evolve.md}\n\n$ARGUMENTS",
+    },
+    "promote": {
+      "description": "Promote project instincts to global scope",
+      "template": "{file:.opencode/command/promote.md}\n\n$ARGUMENTS",
+    },
+    "projects": {
+      "description": "List known projects and instinct stats",
+      "template": "{file:.opencode/command/projects.md}\n\n$ARGUMENTS",
+    },
+    "harness-audit": {
+      "description": "Audit harness reliability and eval readiness",
+      "template": "{file:.opencode/command/harness-audit.md}\n\n$ARGUMENTS",
+    },
+    "loop-start": {
+      "description": "Start controlled agentic loops",
+      "template": "{file:.opencode/command/loop-start.md}\n\n$ARGUMENTS",
+    },
+    "loop-status": {
+      "description": "Check loop state and checkpoints",
+      "template": "{file:.opencode/command/loop-status.md}\n\n$ARGUMENTS",
+    },
+    "quality-gate": {
+      "description": "Run quality gates on file/repo scope",
+      "template": "{file:.opencode/command/quality-gate.md}\n\n$ARGUMENTS",
+    },
+    "model-route": {
+      "description": "Route tasks by model and budget",
+      "template": "{file:.opencode/command/model-route.md}\n\n$ARGUMENTS",
+    },
+  },
+  "tools": {
+    "github-triage": false,
+    "github-pr-search": false,
+  },
+}
