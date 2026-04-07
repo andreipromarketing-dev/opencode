@@ -17,7 +17,14 @@
     "skills/verification-loop/SKILL.md",
     "skills/api-design/SKILL.md",
     "skills/strategic-compact/SKILL.md",
-    "skills/eval-harness/SKILL.md"
+    "skills/eval-harness/SKILL.md",
+    "skills/git-workflow/SKILL.md",
+    "skills/docker-patterns/SKILL.md",
+    "skills/golang-patterns/SKILL.md",
+    "skills/python-patterns/SKILL.md",
+    "skills/exa-search/SKILL.md",
+    "skills/context-budget/SKILL.md",
+    "skills/continuous-learning-v2/SKILL.md"
   ],
   "plugin": [
     "./plugins"
@@ -454,6 +461,42 @@
     "projects": {
       "description": "List known projects and instinct stats",
       "template": "{file:commands/projects.md}\n\n$ARGUMENTS"
+    },
+    "commit": {
+      "description": "Git commit and push with conventional prefixes",
+      "template": "{file:commands/commit.md}\n\n$ARGUMENTS"
+    },
+    "issues": {
+      "description": "List and manage GitHub issues",
+      "template": "{file:commands/issues.md}\n\n$ARGUMENTS"
+    },
+    "rmslop": {
+      "description": "Remove whitespace and empty lines",
+      "template": "{file:commands/rmslop.md}\n\n$ARGUMENTS"
+    },
+    "spellcheck": {
+      "description": "Run spellcheck on files",
+      "template": "{file:commands/spellcheck.md}\n\n$ARGUMENTS"
+    },
+    "loop-start": {
+      "description": "Start controlled agentic loops",
+      "template": "{file:commands/loop-start.md}\n\n$ARGUMENTS"
+    },
+    "loop-status": {
+      "description": "Check loop state and checkpoints",
+      "template": "{file:commands/loop-status.md}\n\n$ARGUMENTS"
+    },
+    "quality-gate": {
+      "description": "Run quality gates on file/repo scope",
+      "template": "{file:commands/quality-gate.md}\n\n$ARGUMENTS"
+    },
+    "model-route": {
+      "description": "Route tasks by model and budget",
+      "template": "{file:commands/model-route.md}\n\n$ARGUMENTS"
+    },
+    "harness-audit": {
+      "description": "Audit harness reliability and eval readiness",
+      "template": "{file:commands/harness-audit.md}\n\n$ARGUMENTS"
     }
   },
   "permission": {
