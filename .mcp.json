@@ -23,6 +23,13 @@
     "sequential-thinking": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking@2025.12.18"]
+    },
+    "token-enhancer": {
+      "command": "python",
+      "args": ["-m", "mcp_server"],
+      "env": {
+        "REQUESTS_CA_BUNDLE": "C:\\Users\\TANSHI\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages\\certifi\\cacert.pem"
+      }
     }
   }
 }
