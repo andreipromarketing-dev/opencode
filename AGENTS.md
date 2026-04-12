@@ -48,85 +48,32 @@ This is a **production-ready AI coding plugin** providing 47 specialized agents,
 Use agents proactively without user prompt:
 - Complex feature requests → **planner**
 - Code just written/modified → **code-reviewer**
-- Bug fix or new feature → **tdd-guide**
-- Architectural decision → **architect**
-- Security-sensitive code → **security-reviewer**
-- Autonomous loops / loop monitoring → **loop-operator**
-- Harness config reliability and cost → **harness-optimizer**
 
-Use parallel execution for independent operations — launch multiple agents simultaneously.
+## Proactive Skill Suggestions
 
-## Security Guidelines
+When the user describes a task that matches a skill's purpose, proactively suggest using it rather than doing the task directly. Examples:
 
-**Before ANY commit:**
-- No hardcoded secrets (API keys, passwords, tokens)
-- All user inputs validated
-- SQL injection prevention (parameterized queries)
-- XSS prevention (sanitized HTML)
-- CSRF protection enabled
-- Authentication/authorization verified
-- Rate limiting on all endpoints
-- Error messages don't leak sensitive data
+- User says "давай спланируем" or "нужно спланировать" → использовать **writing-plans** скилл
+- User says "нужно отладить баг" → использовать **systematic-debugging**
+- User says "напиши тесты" → использовать **test-driven-development**
+- User says "проведи код-ревью" → использовать **requesting-code-review**
+- User asks to test a web page/flow → использовать **Playwright** скилл
+- User wants to document an API → использовать **api-docs-writer**
 
-**Secret management:** NEVER hardcode secrets. Use environment variables or a secret manager. Validate required secrets at startup. Rotate any exposed secrets immediately.
+Ask "Использовать [скилл] для этого?" before proceeding. The user can always say "да" or proceed without it.
 
-**If security issue found:** STOP → use security-reviewer agent → fix CRITICAL issues → rotate exposed secrets → review codebase for similar issues.
+## Proactive Tips & Life Hacks
 
-## Coding Style
+When working on a task, occasionally share useful tips the user might not know about:
 
-**Immutability (CRITICAL):** Always create new objects, never mutate. Return new copies with changes applied.
+- **Better tools:** "Кстати, для этого есть готовый пакет X"
+- **Shortcuts:** "Можно проще — использовать npm create за 30 секунд"
+- **Hidden features:** Note features of tools they're using they might not know
+- **Productivity tips:** Keyboard shortcuts, config tricks, workflow improvements
 
-**File organization:** Many small files over few large ones. 200-400 lines typical, 800 max. Organize by feature/domain, not by type. High cohesion, low coupling.
+Example: "Кстати, для [задача] есть инструмент [название]" or "Не знал? Можно сделать еще проще..."
 
-**Error handling:** Handle errors at every level. Provide user-friendly messages in UI code. Log detailed context server-side. Never silently swallow errors.
-
-**Input validation:** Validate all user input at system boundaries. Use schema-based validation. Fail fast with clear messages. Never trust external data.
-
-**Code quality checklist:**
-- Functions small (<50 lines), files focused (<800 lines)
-- No deep nesting (>4 levels)
-- Proper error handling, no hardcoded values
-- Readable, well-named identifiers
-
-## Testing Requirements
-
-**Minimum coverage: 80%**
-
-Test types (all required):
-1. **Unit tests** — Individual functions, utilities, components
-2. **Integration tests** — API endpoints, database operations
-3. **E2E tests** — Critical user flows
-
-**TDD workflow (mandatory):**
-1. Write test first (RED) — test should FAIL
-2. Write minimal implementation (GREEN) — test should PASS
-3. Refactor (IMPROVE) — verify coverage 80%+
-
-Troubleshoot failures: check test isolation → verify mocks → fix implementation (not tests, unless tests are wrong).
-
-## Development Workflow
-
-1. **Plan** — Use planner agent, identify dependencies and risks, break into phases
-2. **TDD** — Use tdd-guide agent, write tests first, implement, refactor
-3. **Review** — Use code-reviewer agent immediately, address CRITICAL/HIGH issues
-4. **Capture knowledge in the right place**
-   - Personal debugging notes, preferences, and temporary context → auto memory
-   - Team/project knowledge (architecture decisions, API changes, runbooks) → the project's existing docs structure
-   - If the current task already produces the relevant docs or code comments, do not duplicate the same information elsewhere
-   - If there is no obvious project doc location, ask before creating a new top-level file
-5. **Commit** — Conventional commits format, comprehensive PR summaries
-
-## Workflow Surface Policy
-
-- `skills/` is the canonical workflow surface.
-- New workflow contributions should land in `skills/` first.
-- `commands/` is a legacy slash-entry compatibility surface and should only be added or updated when a shim is still required for migration or cross-harness parity.
-
-## Git Workflow
-
-**Commit format:** `<type>: <description>` — Types: feat, fix, refactor, docs, test, chore, perf, ci
-
-**PR workflow:** Analyze full commit history → draft comprehensive summary → include test plan → push with `-u` flag.
+This is optional but adds value — the user might not know what to ask.
 
 ## Architecture Patterns
 

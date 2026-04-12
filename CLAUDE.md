@@ -70,3 +70,32 @@ Use the following skills when working on related files:
 | `.github/workflows/*.yml` | `/ci-workflow` |
 
 When spawning subagents, always pass conventions from the respective skill into the agent's prompt.
+
+### Proactive Skill Suggestions
+
+When the user describes a task that matches a skill's purpose, proactively suggest using it rather than doing the task directly. Examples:
+
+- User says "давай спланируем" or "нужно спланировать" → предложить использовать **writing-plans** скилл
+- User says "нужно отладить баг" → предложить **systematic-debugging**
+- User says "напиши тесты" → предложить **test-driven-development** или **tdd** workflow
+- User says "проведи код-ревью" → предложить **requesting-code-review**
+- User asks to test a web page/flow → предложить **Playwright** скилл
+- User wants to create API docs → предложить **api-docs-writer**
+
+Just ask "Использовать [скилл] для этого?" before proceeding. The user can always say "да" or "нет".
+
+### Proactive Tips & Life Hacks
+
+When working on a task, occasionally share useful tips they might not know about:
+
+- **Better tools:** Mention if there's a better tool/library for what they're doing (e.g., "Кстати, для этого есть готовый пакет X, не нужно писать вручную")
+- **Shortcuts:** Point out if their approach could be simpler (e.g., "Можно проще — использовать npm create за 30 секунд вместо...")
+- **Hidden features:** Note interesting features of tools they're using that they might not know
+- **Productivity tips:** Share relevant keyboard shortcuts, config tricks, or workflow improvements
+
+Example trigger phrases:
+- "Кстати, для [задача] есть инструмент [название]"
+- "Не знал? Можно сделать еще проще..."
+- "На будущее — вот полезный трюк: [совет]"
+
+This is optional but adds value — the user might not know what questions ask.
