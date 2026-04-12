@@ -146,6 +146,7 @@ skills:
 commands:
   - agent-sort
   - aside
+  - brainstorm
   - build-fix
   - checkpoint
   - claw
@@ -159,6 +160,7 @@ commands:
   - e2e
   - eval
   - evolve
+  - execute-plan
   - feature-dev
   - flutter-build
   - flutter-review
@@ -223,6 +225,7 @@ commands:
   - update-codemaps
   - update-docs
   - verify
+  - write-plan
 tags:
   - agent-harness
   - developer-tools
